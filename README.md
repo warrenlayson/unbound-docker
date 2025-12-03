@@ -1,6 +1,6 @@
 # Unbound DNS Server Docker Image
 
-A fork of https://github.com/MatthewVance/unbound-docker, with customized features
+A fork of https://github.com/vincejv/unbound-docker, with customized features
 
 * Compatible with recursive mode, use the sample config in `sample` folder
 * `remote-control` can be toggled on/off by mounting a custom config file on `/opt/unbound/etc/unbound/unbound.conf.d`
@@ -28,7 +28,7 @@ docker run \
 --publish=53:53/tcp \
 --publish=53:53/udp \
 --restart=unless-stopped \
-vincejv/unbound:latest
+ghcr.io/warrenlayson/unbound-docker:2025.12.03
 ```
 
 ### Docker Compose
@@ -38,7 +38,7 @@ version: '3'
 services:
   unbound:
     container_name: unbound
-    image: vincejv/unbound:latest
+    image: ghcr.io/warrenlayson/unbound-docker:2025.12.03
     network_mode: host
     volumes:
       - type: bind
