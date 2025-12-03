@@ -55,12 +55,12 @@ RUN curl -L $SOURCE_OPENSSL/$VERSION_OPENSSL/$VERSION_OPENSSL.tar.gz -o openssl.
       --prefix=/opt/openssl \
       --openssldir=/opt/openssl \
       no-weak-ssl-ciphers \
+      no-tests \
       no-ssl3 \
       no-shared \
       -DOPENSSL_NO_HEARTBEATS \
       -fstack-protector-strong && \
-    make depend && \
-    nproc | xargs -I % make -j% && \
+    make -s -j"$(nproc)" && \
     make install_sw
 
 # Stage 2: Build unbound from source
@@ -176,12 +176,12 @@ WORKDIR /opt/unbound/
 ENV PATH /opt/unbound/sbin:"$PATH"
 
 LABEL org.opencontainers.image.version=${UNBOUND_VERSION} \
-      org.opencontainers.image.title="vincejv/unbound" \
+      org.opencontainers.image.title="warrenlayson/unbound-docker" \
       org.opencontainers.image.description="a validating, recursive, and caching DNS resolver" \
-      org.opencontainers.image.url="https://github.com/vincejv/unbound-docker" \
-      org.opencontainers.image.vendor="Vince Jerald Villamora" \
+      org.opencontainers.image.url="https://github.com/warrenlayson/unbound-docker" \
+      org.opencontainers.image.vendor="Warren Layson" \
       org.opencontainers.image.licenses="MIT" \
-      org.opencontainers.image.source="https://github.com/vincejv/unbound-docker"
+      org.opencontainers.image.source="https://github.com/warrenlayson/unbound-docker"
 
 EXPOSE 53/tcp
 EXPOSE 53/udp
