@@ -28,7 +28,7 @@ docker run \
 --publish=53:53/tcp \
 --publish=53:53/udp \
 --restart=unless-stopped \
-ghcr.io/warrenlayson/unbound-docker:2025.12.03
+ghcr.io/warrenlayson/unbound-docker:1.21.1
 ```
 
 ### Docker Compose
@@ -38,7 +38,7 @@ version: '3'
 services:
   unbound:
     container_name: unbound
-    image: ghcr.io/warrenlayson/unbound-docker:2025.12.03
+    image: ghcr.io/warrenlayson/unbound-docker:1.21.1
     network_mode: host
     volumes:
       - type: bind

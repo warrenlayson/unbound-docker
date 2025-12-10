@@ -159,7 +159,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libevent-2.1-7 \
       libhiredis0.14 \
       libnghttp2-14 \
-      libprotobuf-c1 && \
+      libprotobuf-c1 \
+      dnsutils && \
     # Clean image
     apt-get clean autoclean && \
     apt-get autoremove --yes && \
